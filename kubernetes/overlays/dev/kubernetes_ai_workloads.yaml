@@ -469,7 +469,7 @@ spec:
 
 ---
 # ==================== Auto Scaling for Inference ====================
-apiVersion: autoscaling.k8s.io/v2
+apiVersion: autoscaling/v1
 kind: HorizontalPodAutoscaler
 metadata:
   name: inference-autoscaler

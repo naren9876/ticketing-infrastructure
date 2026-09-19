@@ -1,6 +1,6 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
-bases:
-  - ../../base
+# DO NOT include base - that's handled by ticketing-infrastructure app
+# Only include AI workloads here
 resources:
   - kubernetes_ai_workloads.yaml

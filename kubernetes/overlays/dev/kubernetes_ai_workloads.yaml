@@ -25,7 +25,7 @@ spec:
     serviceAccountName: model-server
     containers:
     - name: kserve-container
-      image: ticketing/recommendation-model:v1.0.0
+      image: python:3.11
       ports:
       - containerPort: 8080
       env:
@@ -35,13 +35,11 @@ spec:
         value: "32"
       resources:
         requests:
-          memory: "2Gi"
-          cpu: "1"
-          nvidia.com/gpu: "1"  # Request GPU
+          memory: "1Gi"
+          cpu: "500m"
         limits:
-          memory: "4Gi"
-          cpu: "2"
-          nvidia.com/gpu: "1"
+          memory: "1Gi"
+          cpu: "500m"
       livenessProbe:
         httpGet:
           path: /v1/models/recommendation:predict
@@ -70,7 +68,7 @@ spec:
     serviceAccountName: model-server
     containers:
     - name: kserve-container
-      image: ticketing/fraud-model:v1.0.0
+      image: python:3.11
       ports:
       - containerPort: 8080
       env:
@@ -80,13 +78,11 @@ spec:
         value: "64"
       resources:
         requests:
-          memory: "3Gi"
-          cpu: "2"
-          nvidia.com/gpu: "1"
+          memory: "1Gi"
+          cpu: "500m"
         limits:
-          memory: "6Gi"
-          cpu: "4"
-          nvidia.com/gpu: "1"
+          memory: "1Gi"
+          cpu: "500m"
       livenessProbe:
         httpGet:
           path: /v1/models/fraud:predict
@@ -109,7 +105,7 @@ spec:
     serviceAccountName: model-server
     containers:
     - name: kserve-container
-      image: ticketing/demand-model:v1.0.0
+      image: python:3.11
       ports:
       - containerPort: 8080
       env:
@@ -119,13 +115,11 @@ spec:
         value: "32"
       resources:
         requests:
-          memory: "4Gi"
-          cpu: "2"
-          nvidia.com/gpu: "1"
+          memory: "1Gi"
+          cpu: "500m"
         limits:
-          memory: "8Gi"
-          cpu: "4"
-          nvidia.com/gpu: "1"
+          memory: "1Gi"
+          cpu: "500m"
       livenessProbe:
         httpGet:
           path: /v1/models/demand:predict
@@ -158,7 +152,7 @@ spec:
       restartPolicy: Never
       containers:
       - name: training-container
-        image: ticketing/training-job:v1.0.0
+        image: python:3.11
         command:
         - python
         - /app/train_distributed.py
@@ -179,13 +173,11 @@ spec:
           value: /models/output
         resources:
           requests:
-            memory: "8Gi"
-            cpu: "4"
-            nvidia.com/gpu: "1"  # 1 GPU per worker
+            memory: "1Gi"
+            cpu: "500m"
           limits:
-            memory: "16Gi"
-            cpu: "8"
-            nvidia.com/gpu: "1"
+            memory: "1Gi"
+            cpu: "500m"
         volumeMounts:
         - name: training-data
           mountPath: /data
@@ -248,7 +240,7 @@ metadata:
   name: model-registry-service
   namespace: ai-models
 spec:
-  replicas: 2
+  replicas: 500m
   selector:
     matchLabels:
       app: model-registry
@@ -260,7 +252,7 @@ spec:
       serviceAccountName: model-registry-sa
       containers:
       - name: registry
-        image: ticketing/model-registry:v1.0.0
+        image: python:3.11
         ports:
         - containerPort: 5000
         env:
@@ -275,8 +267,8 @@ spec:
             memory: "1Gi"
             cpu: "500m"
           limits:
-            memory: "2Gi"
-            cpu: "1000m"
+            memory: "1Gi"
+            cpu: "500m"
         livenessProbe:
           httpGet:
             path: /health
@@ -321,7 +313,6 @@ metadata:
   namespace: ai-models
 spec:
   hard:
-    nvidia.com/gpu: "8"  # Maximum 8 GPUs in namespace
     requests.memory: "64Gi"
     requests.cpu: "32"
     limits.memory: "128Gi"
@@ -444,7 +435,7 @@ spec:
     spec:
       containers:
       - name: monitor
-        image: ticketing/gpu-monitor:v1.0.0
+        image: python:3.11
         resources:
           requests:
             memory: "512Mi"
@@ -479,7 +470,7 @@ spec:
     apiVersion: serving.kserve.io/v1beta1
     kind: InferenceService
     name: recommendation-model
-  minReplicas: 2
+  minReplicas: 500m
   maxReplicas: 10
   metrics:
   - type: Resource
@@ -515,7 +506,7 @@ spec:
         value: 100
         periodSeconds: 30
       - type: Pods
-        value: 2
+        value: 500m
         periodSeconds: 60
       selectPolicy: Max
 

@@ -1,0 +1,30 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+# Reference the base configuration
+bases:
+  - ../../base
+
+# Include staging-specific resources (AI workloads)
+resources:
+  - kubernetes_ai_workloads.yaml
+
+# Patch replicas for all deployments: 2 → 3
+replicas:
+  - name: api-gateway
+    count: 3
+  - name: user-service
+    count: 3
+  - name: movie-service
+    count: 3
+  - name: booking-service
+    count: 3
+  - name: payment-service
+    count: 3
+  - name: notification-service
+    count: 3
+
+# Common labels for staging
+commonLabels:
+  environment: staging
+  version: v1

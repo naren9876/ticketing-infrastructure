@@ -5,10 +5,6 @@ kind: Kustomization
 bases:
   - ../../base
 
-# Include staging-specific resources (AI workloads)
-resources:
-  - kubernetes_ai_workloads.yaml
-
 # Patch replicas for all deployments: 2 → 3
 replicas:
   - name: api-gateway
@@ -28,3 +24,18 @@ replicas:
 commonLabels:
   environment: staging
   version: v1
+
+# Override image tags for staging deployment
+images:
+  - name: 840080485121.dkr.ecr.us-east-1.amazonaws.com/ticketing-api-gateway
+    newTag: v1.0.10
+  - name: 840080485121.dkr.ecr.us-east-1.amazonaws.com/ticketing-user-service
+    newTag: v1.0.10
+  - name: 840080485121.dkr.ecr.us-east-1.amazonaws.com/ticketing-movie-service
+    newTag: v1.0.10
+  - name: 840080485121.dkr.ecr.us-east-1.amazonaws.com/ticketing-booking-service
+    newTag: v1.0.10
+  - name: 840080485121.dkr.ecr.us-east-1.amazonaws.com/ticketing-payment-service
+    newTag: v1.0.10
+  - name: 840080485121.dkr.ecr.us-east-1.amazonaws.com/ticketing-notification-service
+    newTag: v1.0.10

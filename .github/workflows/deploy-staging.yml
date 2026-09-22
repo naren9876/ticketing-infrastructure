@@ -46,7 +46,7 @@ jobs:
     - name: Setup kubectl
       uses: azure/setup-kubectl@v3
       with:
-        version: '1.31'
+        version: 'latest'
     
     - name: Update kubeconfig for staging cluster
       run: aws eks update-kubeconfig --name ticketing-staging --region ${{ secrets.AWS_REGION }}

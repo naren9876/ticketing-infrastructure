@@ -1,7 +1,9 @@
-# EKS Cluster
+# ==================== EKS Cluster ====================
+
 resource "aws_eks_cluster" "ticketing" {
-  name            = "ticketing-dev"
+  name            = var.cluster_name
   role_arn        = aws_iam_role.eks_cluster_role.arn
+  version         = "1.36"
 
   vpc_config {
     subnet_ids              = [aws_subnet.public_1.id, aws_subnet.public_2.id]
@@ -12,24 +14,27 @@ resource "aws_eks_cluster" "ticketing" {
   depends_on = [aws_iam_role_policy_attachment.eks_cluster_policy]
 
   tags = {
-    Name = "ticketing-eks-dev"
+    Name = "${var.cluster_name}-cluster"
   }
 }
 
-# EKS Node Group
-resource "aws_eks_node_group" "ticketing" {
+# ==================== EKS Node Groups ====================
+
+resource "aws_eks_node_group" "node_groups" {
+  for_each = var.node_groups
+
   cluster_name    = aws_eks_cluster.ticketing.name
-  node_group_name = "ticketing-nodes"
+  node_group_name = "${var.cluster_name}-${each.value.name}"
   node_role_arn   = aws_iam_role.eks_node_role.arn
   subnet_ids      = [aws_subnet.public_1.id, aws_subnet.public_2.id]
 
   scaling_config {
-    desired_size = 2
-    max_size     = 3
-    min_size     = 2
+    desired_size = each.value.desired_size
+    max_size     = each.value.max_size
+    min_size     = each.value.min_size
   }
 
-  instance_types = ["t3.medium"]
+  instance_types = each.value.instance_types
 
   depends_on = [
     aws_iam_role_policy_attachment.eks_worker_policy,
@@ -38,13 +43,14 @@ resource "aws_eks_node_group" "ticketing" {
   ]
 
   tags = {
-    Name = "ticketing-nodes"
+    Name = "${var.cluster_name}-${each.value.name}-nodes"
   }
 }
 
-# IAM Role for EKS Cluster
+# ==================== IAM Roles ====================
+
 resource "aws_iam_role" "eks_cluster_role" {
-  name = "ticketing-eks-cluster-role"
+  name = "${var.cluster_name}-cluster-role"
 
   assume_role_policy = jsonencode({
     Version = "2012-10-17"
@@ -65,9 +71,8 @@ resource "aws_iam_role_policy_attachment" "eks_cluster_policy" {
   role       = aws_iam_role.eks_cluster_role.name
 }
 
-# IAM Role for EKS Nodes
 resource "aws_iam_role" "eks_node_role" {
-  name = "ticketing-eks-node-role"
+  name = "${var.cluster_name}-node-role"
 
   assume_role_policy = jsonencode({
     Version = "2012-10-17"
@@ -98,15 +103,8 @@ resource "aws_iam_role_policy_attachment" "eks_registry_policy" {
   role       = aws_iam_role.eks_node_role.name
 }
 
-# Outputs
-output "eks_cluster_name" {
-  value = aws_eks_cluster.ticketing.name
-}
+# ==================== Outputs ====================
 
-output "eks_cluster_endpoint" {
-  value = aws_eks_cluster.ticketing.endpoint
-}
 
-output "eks_cluster_certificate_authority" {
-  value = aws_eks_cluster.ticketing.certificate_authority[0].data
-}
+
+

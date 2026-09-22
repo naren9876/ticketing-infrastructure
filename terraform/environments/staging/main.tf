@@ -1,3 +1,5 @@
+# Staging environment Terraform configuration
+
 terraform {
   required_version = ">= 1.0"
   
@@ -10,22 +12,15 @@ terraform {
 }
 
 provider "aws" {
-  region  = "us-east-1"
-  profile = "ticketing-dev"
+  region = var.aws_region
   
   default_tags {
     tags = {
-      Project     = "ticketing"
-      Environment = "dev"
+      Layer       = "environment"
+      Environment = var.environment
+      Cluster     = var.cluster_name
       ManagedBy   = "terraform"
+      Project     = var.project_name
     }
   }
-}
-
-output "aws_region" {
-  value = "us-east-1"
-}
-
-output "environment" {
-  value = "dev"
 }

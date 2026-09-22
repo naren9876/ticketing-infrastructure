@@ -1,0 +1,782 @@
+aws_ecr_repository.notification_service: Refreshing state... [id=ticketing-notification-service]
+aws_iam_role.eks_node_role: Refreshing state... [id=ticketing-eks-node-role]
+aws_vpc.ticketing: Refreshing state... [id=vpc-0001eb40b189eb00f]
+aws_ecr_repository.booking_service: Refreshing state... [id=ticketing-booking-service]
+aws_iam_role.eks_cluster_role: Refreshing state... [id=ticketing-eks-cluster-role]
+aws_iam_role.ticketing_app_role: Refreshing state... [id=ticketing-app-role]
+aws_kms_key.ticketing_key: Refreshing state... [id=d645d501-95e1-4c96-a97a-84af823163dc]
+aws_security_group.ticketing_sg: Refreshing state... [id=sg-092b298e47e2b6d19]
+aws_eks_node_group.ticketing: Refreshing state... [id=ticketing-dev:ticketing-nodes]
+aws_ecr_repository.payment_service: Refreshing state... [id=ticketing-payment-service]
+aws_ecr_repository.api_gateway: Refreshing state... [id=ticketing-api-gateway]
+aws_ecr_repository.movie_service: Refreshing state... [id=ticketing-movie-service]
+aws_ecr_repository.user_service: Refreshing state... [id=ticketing-user-service]
+aws_iam_role_policy_attachment.eks_cluster_policy: Refreshing state... [id=ticketing-eks-cluster-role-20260918175048435900000005]
+aws_iam_role_policy_attachment.eks_cni_policy: Refreshing state... [id=ticketing-eks-node-role-20260918175048308200000002]
+aws_iam_role_policy_attachment.eks_worker_policy: Refreshing state... [id=ticketing-eks-node-role-20260918175048342200000003]
+aws_iam_role_policy_attachment.eks_registry_policy: Refreshing state... [id=ticketing-eks-node-role-20260918175048360100000004]
+aws_internet_gateway.ticketing: Refreshing state... [id=igw-0c436c2e7c1a24c15]
+aws_subnet.public_1: Refreshing state... [id=subnet-0a51e931517547741]
+aws_subnet.public_2: Refreshing state... [id=subnet-01e2162b718866629]
+aws_security_group.ticketing: Refreshing state... [id=sg-0bb6e3396c8aae5d9]
+aws_route_table.public: Refreshing state... [id=rtb-02e21c91ca089f269]
+aws_route_table_association.public_1: Refreshing state... [id=rtbassoc-07a6eed533bcd28ed]
+aws_route_table_association.public_2: Refreshing state... [id=rtbassoc-05f487872b8bcba2c]
+aws_eks_cluster.ticketing: Refreshing state... [id=ticketing-dev]
+
+Terraform used the selected providers to generate the following execution
+plan. Resource actions are indicated with the following symbols:
+  + create
+  ~ update in-place
+  - destroy
+-/+ destroy and then create replacement
+
+Terraform will perform the following actions:
+
+  # aws_ecr_repository.api_gateway will be updated in-place
+  ~ resource "aws_ecr_repository" "api_gateway" {
+        id                   = "ticketing-api-gateway"
+        name                 = "ticketing-api-gateway"
+      ~ tags                 = {
+          - "Environment" = "dev" -> null
+          - "ManagedBy"   = "terraform" -> null
+          - "Project"     = "ticketing" -> null
+        }
+      ~ tags_all             = {
+          - "Environment" = "dev" -> null
+          - "ManagedBy"   = "terraform" -> null
+          - "Project"     = "ticketing" -> null
+        }
+        # (5 unchanged attributes hidden)
+
+        # (2 unchanged blocks hidden)
+    }
+
+  # aws_ecr_repository.booking_service will be updated in-place
+  ~ resource "aws_ecr_repository" "booking_service" {
+        id                   = "ticketing-booking-service"
+        name                 = "ticketing-booking-service"
+      ~ tags                 = {
+          - "Environment" = "dev" -> null
+          - "ManagedBy"   = "terraform" -> null
+          - "Project"     = "ticketing" -> null
+        }
+      ~ tags_all             = {
+          - "Environment" = "dev" -> null
+          - "ManagedBy"   = "terraform" -> null
+          - "Project"     = "ticketing" -> null
+        }
+        # (5 unchanged attributes hidden)
+
+        # (2 unchanged blocks hidden)
+    }
+
+  # aws_ecr_repository.movie_service will be updated in-place
+  ~ resource "aws_ecr_repository" "movie_service" {
+        id                   = "ticketing-movie-service"
+        name                 = "ticketing-movie-service"
+      ~ tags                 = {
+          - "Environment" = "dev" -> null
+          - "ManagedBy"   = "terraform" -> null
+          - "Project"     = "ticketing" -> null
+        }
+      ~ tags_all             = {
+          - "Environment" = "dev" -> null
+          - "ManagedBy"   = "terraform" -> null
+          - "Project"     = "ticketing" -> null
+        }
+        # (5 unchanged attributes hidden)
+
+        # (2 unchanged blocks hidden)
+    }
+
+  # aws_ecr_repository.notification_service will be updated in-place
+  ~ resource "aws_ecr_repository" "notification_service" {
+        id                   = "ticketing-notification-service"
+        name                 = "ticketing-notification-service"
+      ~ tags                 = {
+          - "Environment" = "dev" -> null
+          - "ManagedBy"   = "terraform" -> null
+          - "Project"     = "ticketing" -> null
+        }
+      ~ tags_all             = {
+          - "Environment" = "dev" -> null
+          - "ManagedBy"   = "terraform" -> null
+          - "Project"     = "ticketing" -> null
+        }
+        # (5 unchanged attributes hidden)
+
+        # (2 unchanged blocks hidden)
+    }
+
+  # aws_ecr_repository.payment_service will be updated in-place
+  ~ resource "aws_ecr_repository" "payment_service" {
+        id                   = "ticketing-payment-service"
+        name                 = "ticketing-payment-service"
+      ~ tags                 = {
+          - "Environment" = "dev" -> null
+          - "ManagedBy"   = "terraform" -> null
+          - "Project"     = "ticketing" -> null
+        }
+      ~ tags_all             = {
+          - "Environment" = "dev" -> null
+          - "ManagedBy"   = "terraform" -> null
+          - "Project"     = "ticketing" -> null
+        }
+        # (5 unchanged attributes hidden)
+
+        # (2 unchanged blocks hidden)
+    }
+
+  # aws_ecr_repository.user_service will be updated in-place
+  ~ resource "aws_ecr_repository" "user_service" {
+        id                   = "ticketing-user-service"
+        name                 = "ticketing-user-service"
+      ~ tags                 = {
+          - "Environment" = "dev" -> null
+          - "ManagedBy"   = "terraform" -> null
+          - "Project"     = "ticketing" -> null
+        }
+      ~ tags_all             = {
+          - "Environment" = "dev" -> null
+          - "ManagedBy"   = "terraform" -> null
+          - "Project"     = "ticketing" -> null
+        }
+        # (5 unchanged attributes hidden)
+
+        # (2 unchanged blocks hidden)
+    }
+
+  # aws_eks_cluster.ticketing must be replaced
+-/+ resource "aws_eks_cluster" "ticketing" {
+      ~ arn                           = "arn:aws:eks:us-east-1:840080485121:cluster/ticketing-dev" -> (known after apply)
+      ~ certificate_authority         = [
+          - {
+              - data = "LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSURNakNDQWhxZ0F3SUJBZ0lSQUk4dHk0Rk55ejdONWZaOUNRZkZiN3d3RFFZSktvWklodmNOQVFFTEJRQXcKSnpFUU1BNEdBMVVFQ2hNSFFWZFRJRVZMVXpFVE1CRUdBMVVFQXhNS2EzVmlaWEp1WlhSbGN6QWVGdzB5TmpBNQpNVGd4TnpVd05UZGFGdzB6TVRBNU1UY3hOelV3TlRkYU1DY3hFREFPQmdOVkJBb1RCMEZYVXlCRlMxTXhFekFSCkJnTlZCQU1UQ210MVltVnlibVYwWlhNd2dnRWlNQTBHQ1NxR1NJYjNEUUVCQVFVQUE0SUJEd0F3Z2dFS0FvSUIKQVFEcnh2UXZaL3ZNeEdUL01EVG0ydm5Rb0U3VG9iQXBxTGI1Z3hsQmZaVzVqOE0rekE5M0JFUGwyVTRtN2dGKwpWT25qbGx4NXFndm4zdXdQMFBiNUg1dWJqbDhySmMzUzNYYlZaRFM4Zlo5ZGljWERQQXFzaXJ5TlIwU2JTblNNClpybU53RzExTU5Za2pRNk5zOFBPdkZEU1hsRUVoVWhub05TZ3Rvc3JmU05WVXBMeFZZM3M4Ry9vYVNXa2tMdjkKNEJXc3NuTFphUkh6bHJraHY4UzJEaVpuOUpKSUNPY1pXemZYUVVUcDZjYnJLNzBmd3FsRHk1UEUxazgwQWdqWQpmUVpDck1SZnAyWjZvSWFqWHJwVEV4YXBheDY1S2dURVdWUGIrcE5rK2xQcERqcTZSUzJla2RTRm9yMzNJeDZ3ClZUUXVnMGFUK1NTYzFqUWtTcXByWHIvMUFnTUJBQUdqV1RCWE1BNEdBMVVkRHdFQi93UUVBd0lDcERBUEJnTlYKSFJNQkFmOEVCVEFEQVFIL01CMEdBMVVkRGdRV0JCUVZncUhvR1lZY1Z6ZS91K01sSmRKY0lBdjA3ekFWQmdOVgpIUkVFRGpBTWdncHJkV0psY201bGRHVnpNQTBHQ1NxR1NJYjNEUUVCQ3dVQUE0SUJBUUJZZ3JoTEtpK01oVXNICmNGaWdWWlpnNGErNHdaQjRIZGNibFFmcGV1dG1abVVMODZJUkRmOWlJb1RMVEEvOEp3M2Y5YkNwMEF3UVhaekwKRVJ3U1dlRWVVQjhVUzRJZ3N6YmNUUmVvUHR4TkxqR0RXeVM1ejNsYVUvL2MrWGtET05icmg4dTlHdU4wbkxEUgpxRzc4VkZMZVJEYS93WXdvVVllWHAxRlJ4Ym81anZUQ2hqaUMyTjJydzFNRnpBQlFEMmRBY0tjMmsyTTRxQnp2Cmk5aHpEeHV0TXFzQk9IZERxL3pTZ2JBRkFadUJVRXUxbW5GL0dNMHZ1QTJ3TWM0TnRRdmJtOUVyVXFwUGVYK0gKalV2YkNkUGNtejgxTjZpamp2U0U5Qm5PcHN5UGZaUjFqY3pJRGlySXhSaVY3TEo0VnlFd2NyekUydkVuYUo3Rgp1QlMvWElicQotLS0tLUVORCBDRVJUSUZJQ0FURS0tLS0tCg=="
+            },
+        ] -> (known after apply)
+      + cluster_id                    = (known after apply)
+      ~ created_at                    = "2026-09-18T17:50:50Z" -> (known after apply)
+      - enabled_cluster_log_types     = [] -> null
+      ~ endpoint                      = "https://2DE93C413299F04C7D91D5BFCD4EF2CD.gr7.us-east-1.eks.amazonaws.com" -> (known after apply)
+      ~ id                            = "ticketing-dev" -> (known after apply)
+      ~ identity                      = [
+          - {
+              - oidc = [
+                  - {
+                      - issuer = "https://oidc.eks.us-east-1.amazonaws.com/id/2DE93C413299F04C7D91D5BFCD4EF2CD"
+                    },
+                ]
+            },
+        ] -> (known after apply)
+        name                          = "ticketing-dev"
+      ~ platform_version              = "eks.13" -> (known after apply)
+      ~ role_arn                      = "arn:aws:iam::840080485121:role/ticketing-eks-cluster-role" -> (known after apply) # forces replacement
+      ~ status                        = "ACTIVE" -> (known after apply)
+      ~ tags                          = {
+          - "Environment" = "dev" -> null
+          - "ManagedBy"   = "terraform" -> null
+          ~ "Name"        = "ticketing-eks-dev" -> "ticketing-dev-cluster"
+          - "Project"     = "ticketing" -> null
+        }
+      ~ tags_all                      = {
+          - "Environment" = "dev" -> null
+          - "ManagedBy"   = "terraform" -> null
+          ~ "Name"        = "ticketing-eks-dev" -> "ticketing-dev-cluster"
+          - "Project"     = "ticketing" -> null
+        }
+        # (2 unchanged attributes hidden)
+
+      ~ access_config (known after apply)
+      - access_config {
+          - authentication_mode                         = "CONFIG_MAP" -> null
+          - bootstrap_cluster_creator_admin_permissions = true -> null
+        }
+
+      ~ kubernetes_network_config (known after apply)
+      - kubernetes_network_config {
+          - ip_family         = "ipv4" -> null
+          - service_ipv4_cidr = "172.20.0.0/16" -> null
+            # (1 unchanged attribute hidden)
+
+          - elastic_load_balancing {
+              - enabled = false -> null
+            }
+        }
+
+      ~ upgrade_policy (known after apply)
+      - upgrade_policy {
+          - support_type = "EXTENDED" -> null
+        }
+
+      ~ vpc_config {
+          ~ cluster_security_group_id = "sg-0991b09518b29e0f8" -> (known after apply)
+          ~ public_access_cidrs       = [
+              - "0.0.0.0/0",
+            ] -> (known after apply)
+          - security_group_ids        = [] -> null
+          ~ vpc_id                    = "vpc-0001eb40b189eb00f" -> (known after apply)
+            # (3 unchanged attributes hidden)
+        }
+    }
+
+  # aws_eks_node_group.node_groups["compute"] will be created
+  + resource "aws_eks_node_group" "node_groups" {
+      + ami_type               = (known after apply)
+      + arn                    = (known after apply)
+      + capacity_type          = (known after apply)
+      + cluster_name           = "ticketing-dev"
+      + disk_size              = (known after apply)
+      + id                     = (known after apply)
+      + instance_types         = [
+          + "t3.micro",
+        ]
+      + node_group_name        = "ticketing-dev-compute"
+      + node_group_name_prefix = (known after apply)
+      + node_role_arn          = (known after apply)
+      + release_version        = (known after apply)
+      + resources              = (known after apply)
+      + status                 = (known after apply)
+      + subnet_ids             = [
+          + "subnet-01e2162b718866629",
+          + "subnet-0a51e931517547741",
+        ]
+      + tags                   = {
+          + "Name" = "ticketing-dev-compute-nodes"
+        }
+      + tags_all               = {
+          + "Name" = "ticketing-dev-compute-nodes"
+        }
+      + version                = (known after apply)
+
+      + node_repair_config (known after apply)
+
+      + scaling_config {
+          + desired_size = 1
+          + max_size     = 1
+          + min_size     = 1
+        }
+
+      + update_config (known after apply)
+    }
+
+  # aws_eks_node_group.ticketing will be destroyed
+  # (because aws_eks_node_group.ticketing is not in configuration)
+  - resource "aws_eks_node_group" "ticketing" {
+      - ami_type               = "AL2023_x86_64_STANDARD" -> null
+      - arn                    = "arn:aws:eks:us-east-1:840080485121:nodegroup/ticketing-dev/ticketing-nodes/42d05ad7-64a5-8a7c-7d2c-ed897675cfba" -> null
+      - capacity_type          = "ON_DEMAND" -> null
+      - cluster_name           = "ticketing-dev" -> null
+      - disk_size              = 20 -> null
+      - id                     = "ticketing-dev:ticketing-nodes" -> null
+      - instance_types         = [
+          - "t3.medium",
+        ] -> null
+      - labels                 = {} -> null
+      - node_group_name        = "ticketing-nodes" -> null
+      - node_role_arn          = "arn:aws:iam::840080485121:role/ticketing-eks-node-role" -> null
+      - release_version        = "1.36.4-20260917" -> null
+      - resources              = [
+          - {
+              - autoscaling_groups              = [
+                  - {
+                      - name = "eks-ticketing-nodes-42d05ad7-64a5-8a7c-7d2c-ed897675cfba"
+                    },
+                ]
+                # (1 unchanged attribute hidden)
+            },
+        ] -> null
+      - status                 = "ACTIVE" -> null
+      - subnet_ids             = [
+          - "subnet-01e2162b718866629",
+          - "subnet-0a51e931517547741",
+        ] -> null
+      - tags                   = {
+          - "Environment" = "dev"
+          - "ManagedBy"   = "terraform"
+          - "Name"        = "ticketing-nodes"
+          - "Project"     = "ticketing"
+        } -> null
+      - tags_all               = {
+          - "Environment" = "dev"
+          - "ManagedBy"   = "terraform"
+          - "Name"        = "ticketing-nodes"
+          - "Project"     = "ticketing"
+        } -> null
+      - version                = "1.36" -> null
+        # (1 unchanged attribute hidden)
+
+      - scaling_config {
+          - desired_size = 2 -> null
+          - max_size     = 3 -> null
+          - min_size     = 2 -> null
+        }
+
+      - update_config {
+          - max_unavailable            = 1 -> null
+          - max_unavailable_percentage = 0 -> null
+        }
+    }
+
+  # aws_iam_role.eks_cluster_role must be replaced
+-/+ resource "aws_iam_role" "eks_cluster_role" {
+      ~ arn                   = "arn:aws:iam::840080485121:role/ticketing-eks-cluster-role" -> (known after apply)
+      ~ create_date           = "2026-09-18T17:50:48Z" -> (known after apply)
+      ~ id                    = "ticketing-eks-cluster-role" -> (known after apply)
+      ~ managed_policy_arns   = [
+          - "arn:aws:iam::aws:policy/AmazonEKSClusterPolicy",
+        ] -> (known after apply)
+      ~ name                  = "ticketing-eks-cluster-role" -> "ticketing-dev-cluster-role" # forces replacement
+      + name_prefix           = (known after apply)
+      - tags                  = {
+          - "Environment" = "dev"
+          - "ManagedBy"   = "terraform"
+          - "Project"     = "ticketing"
+        } -> null
+      ~ tags_all              = {
+          - "Environment" = "dev"
+          - "ManagedBy"   = "terraform"
+          - "Project"     = "ticketing"
+        } -> (known after apply)
+      ~ unique_id             = "AROA4HGFS5MATPX3XTGR6" -> (known after apply)
+        # (6 unchanged attributes hidden)
+
+      ~ inline_policy (known after apply)
+    }
+
+  # aws_iam_role.eks_node_role must be replaced
+-/+ resource "aws_iam_role" "eks_node_role" {
+      ~ arn                   = "arn:aws:iam::840080485121:role/ticketing-eks-node-role" -> (known after apply)
+      ~ create_date           = "2026-09-18T17:50:48Z" -> (known after apply)
+      ~ id                    = "ticketing-eks-node-role" -> (known after apply)
+      ~ managed_policy_arns   = [
+          - "arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly",
+          - "arn:aws:iam::aws:policy/AmazonEKSWorkerNodePolicy",
+          - "arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy",
+        ] -> (known after apply)
+      ~ name                  = "ticketing-eks-node-role" -> "ticketing-dev-node-role" # forces replacement
+      + name_prefix           = (known after apply)
+      - tags                  = {
+          - "Environment" = "dev"
+          - "ManagedBy"   = "terraform"
+          - "Project"     = "ticketing"
+        } -> null
+      ~ tags_all              = {
+          - "Environment" = "dev"
+          - "ManagedBy"   = "terraform"
+          - "Project"     = "ticketing"
+        } -> (known after apply)
+      ~ unique_id             = "AROA4HGFS5MAS4VJUMV6I" -> (known after apply)
+        # (6 unchanged attributes hidden)
+
+      ~ inline_policy (known after apply)
+    }
+
+  # aws_iam_role.ticketing_app_role must be replaced
+-/+ resource "aws_iam_role" "ticketing_app_role" {
+      ~ arn                   = "arn:aws:iam::840080485121:role/ticketing-app-role" -> (known after apply)
+      ~ create_date           = "2026-09-18T17:50:48Z" -> (known after apply)
+      ~ id                    = "ticketing-app-role" -> (known after apply)
+      ~ managed_policy_arns   = [] -> (known after apply)
+      ~ name                  = "ticketing-app-role" -> "ticketing-dev-app-role" # forces replacement
+      + name_prefix           = (known after apply)
+      ~ tags                  = {
+          - "Environment" = "dev" -> null
+          - "ManagedBy"   = "terraform" -> null
+          + "Name"        = "ticketing-dev-app-role"
+          - "Project"     = "ticketing" -> null
+        }
+      ~ tags_all              = {
+          - "Environment" = "dev" -> null
+          - "ManagedBy"   = "terraform" -> null
+          + "Name"        = "ticketing-dev-app-role"
+          - "Project"     = "ticketing" -> null
+        }
+      ~ unique_id             = "AROA4HGFS5MAR33IRC56A" -> (known after apply)
+        # (6 unchanged attributes hidden)
+
+      ~ inline_policy (known after apply)
+    }
+
+  # aws_iam_role_policy_attachment.eks_cluster_policy must be replaced
+-/+ resource "aws_iam_role_policy_attachment" "eks_cluster_policy" {
+      ~ id         = "ticketing-eks-cluster-role-20260918175048435900000005" -> (known after apply)
+      ~ role       = "ticketing-eks-cluster-role" -> "ticketing-dev-cluster-role" # forces replacement
+        # (1 unchanged attribute hidden)
+    }
+
+  # aws_iam_role_policy_attachment.eks_cni_policy must be replaced
+-/+ resource "aws_iam_role_policy_attachment" "eks_cni_policy" {
+      ~ id         = "ticketing-eks-node-role-20260918175048308200000002" -> (known after apply)
+      ~ role       = "ticketing-eks-node-role" -> "ticketing-dev-node-role" # forces replacement
+        # (1 unchanged attribute hidden)
+    }
+
+  # aws_iam_role_policy_attachment.eks_registry_policy must be replaced
+-/+ resource "aws_iam_role_policy_attachment" "eks_registry_policy" {
+      ~ id         = "ticketing-eks-node-role-20260918175048360100000004" -> (known after apply)
+      ~ role       = "ticketing-eks-node-role" -> "ticketing-dev-node-role" # forces replacement
+        # (1 unchanged attribute hidden)
+    }
+
+  # aws_iam_role_policy_attachment.eks_worker_policy must be replaced
+-/+ resource "aws_iam_role_policy_attachment" "eks_worker_policy" {
+      ~ id         = "ticketing-eks-node-role-20260918175048342200000003" -> (known after apply)
+      ~ role       = "ticketing-eks-node-role" -> "ticketing-dev-node-role" # forces replacement
+        # (1 unchanged attribute hidden)
+    }
+
+  # aws_internet_gateway.ticketing will be updated in-place
+  ~ resource "aws_internet_gateway" "ticketing" {
+        id       = "igw-0c436c2e7c1a24c15"
+      ~ tags     = {
+          - "Environment" = "dev" -> null
+          - "ManagedBy"   = "terraform" -> null
+          ~ "Name"        = "ticketing-igw-dev" -> "ticketing-dev-igw"
+          - "Project"     = "ticketing" -> null
+        }
+      ~ tags_all = {
+          - "Environment" = "dev" -> null
+          - "ManagedBy"   = "terraform" -> null
+          ~ "Name"        = "ticketing-igw-dev" -> "ticketing-dev-igw"
+          - "Project"     = "ticketing" -> null
+        }
+        # (3 unchanged attributes hidden)
+    }
+
+  # aws_kms_alias.ticketing will be created
+  + resource "aws_kms_alias" "ticketing" {
+      + arn            = (known after apply)
+      + id             = (known after apply)
+      + name           = "alias/ticketing-dev-key"
+      + name_prefix    = (known after apply)
+      + target_key_arn = (known after apply)
+      + target_key_id  = (known after apply)
+    }
+
+  # aws_kms_key.ticketing will be created
+  + resource "aws_kms_key" "ticketing" {
+      + arn                                = (known after apply)
+      + bypass_policy_lockout_safety_check = false
+      + customer_master_key_spec           = "SYMMETRIC_DEFAULT"
+      + deletion_window_in_days            = 10
+      + description                        = "KMS key for ticketing-dev encryption"
+      + enable_key_rotation                = true
+      + id                                 = (known after apply)
+      + is_enabled                         = true
+      + key_id                             = (known after apply)
+      + key_usage                          = "ENCRYPT_DECRYPT"
+      + multi_region                       = (known after apply)
+      + policy                             = (known after apply)
+      + rotation_period_in_days            = (known after apply)
+      + tags                               = {
+          + "Name" = "ticketing-dev-encryption-key"
+        }
+      + tags_all                           = {
+          + "Name" = "ticketing-dev-encryption-key"
+        }
+    }
+
+  # aws_kms_key.ticketing_key will be destroyed
+  # (because aws_kms_key.ticketing_key is not in configuration)
+  - resource "aws_kms_key" "ticketing_key" {
+      - arn                                = "arn:aws:kms:us-east-1:840080485121:key/d645d501-95e1-4c96-a97a-84af823163dc" -> null
+      - bypass_policy_lockout_safety_check = false -> null
+      - customer_master_key_spec           = "SYMMETRIC_DEFAULT" -> null
+      - deletion_window_in_days            = 10 -> null
+      - description                        = "KMS key for Ticketing App encryption" -> null
+      - enable_key_rotation                = true -> null
+      - id                                 = "d645d501-95e1-4c96-a97a-84af823163dc" -> null
+      - is_enabled                         = true -> null
+      - key_id                             = "d645d501-95e1-4c96-a97a-84af823163dc" -> null
+      - key_usage                          = "ENCRYPT_DECRYPT" -> null
+      - multi_region                       = false -> null
+      - policy                             = jsonencode(
+            {
+              - Id        = "key-default-1"
+              - Statement = [
+                  - {
+                      - Action    = "kms:*"
+                      - Effect    = "Allow"
+                      - Principal = {
+                          - AWS = "arn:aws:iam::840080485121:root"
+                        }
+                      - Resource  = "*"
+                      - Sid       = "Enable IAM User Permissions"
+                    },
+                ]
+              - Version   = "2012-10-17"
+            }
+        ) -> null
+      - rotation_period_in_days            = 365 -> null
+      - tags                               = {
+          - "Environment" = "dev"
+          - "ManagedBy"   = "terraform"
+          - "Name"        = "ticketing-encryption-key"
+          - "Project"     = "ticketing"
+        } -> null
+      - tags_all                           = {
+          - "Environment" = "dev"
+          - "ManagedBy"   = "terraform"
+          - "Name"        = "ticketing-encryption-key"
+          - "Project"     = "ticketing"
+        } -> null
+        # (2 unchanged attributes hidden)
+    }
+
+  # aws_route_table.public will be updated in-place
+  ~ resource "aws_route_table" "public" {
+        id               = "rtb-02e21c91ca089f269"
+      ~ tags             = {
+          - "Environment" = "dev" -> null
+          - "ManagedBy"   = "terraform" -> null
+          ~ "Name"        = "ticketing-rt-public" -> "ticketing-dev-rt-public"
+          - "Project"     = "ticketing" -> null
+        }
+      ~ tags_all         = {
+          - "Environment" = "dev" -> null
+          - "ManagedBy"   = "terraform" -> null
+          ~ "Name"        = "ticketing-rt-public" -> "ticketing-dev-rt-public"
+          - "Project"     = "ticketing" -> null
+        }
+        # (5 unchanged attributes hidden)
+    }
+
+  # aws_security_group.ticketing must be replaced
+-/+ resource "aws_security_group" "ticketing" {
+      ~ arn                    = "arn:aws:ec2:us-east-1:840080485121:security-group/sg-0bb6e3396c8aae5d9" -> (known after apply)
+      ~ id                     = "sg-0bb6e3396c8aae5d9" -> (known after apply)
+      ~ ingress                = [
+          + {
+              + cidr_blocks      = [
+                  + "0.0.0.0/0",
+                ]
+              + from_port        = 3000
+              + ipv6_cidr_blocks = []
+              + prefix_list_ids  = []
+              + protocol         = "tcp"
+              + security_groups  = []
+              + self             = false
+              + to_port          = 3005
+                # (1 unchanged attribute hidden)
+            },
+            # (2 unchanged elements hidden)
+        ]
+      ~ name                   = "ticketing-sg-dev" -> "ticketing-dev-sg" # forces replacement
+      + name_prefix            = (known after apply)
+      ~ owner_id               = "840080485121" -> (known after apply)
+      ~ tags                   = {
+          - "Environment" = "dev" -> null
+          - "ManagedBy"   = "terraform" -> null
+          ~ "Name"        = "ticketing-sg-dev" -> "ticketing-dev-sg"
+          - "Project"     = "ticketing" -> null
+        }
+      ~ tags_all               = {
+          - "Environment" = "dev" -> null
+          - "ManagedBy"   = "terraform" -> null
+          ~ "Name"        = "ticketing-sg-dev" -> "ticketing-dev-sg"
+          - "Project"     = "ticketing" -> null
+        }
+        # (4 unchanged attributes hidden)
+    }
+
+  # aws_security_group.ticketing_policies will be created
+  + resource "aws_security_group" "ticketing_policies" {
+      + arn                    = (known after apply)
+      + description            = "Security group with policies for ticketing-dev"
+      + egress                 = [
+          + {
+              + cidr_blocks      = [
+                  + "0.0.0.0/0",
+                ]
+              + description      = "All outbound traffic"
+              + from_port        = 0
+              + ipv6_cidr_blocks = []
+              + prefix_list_ids  = []
+              + protocol         = "-1"
+              + security_groups  = []
+              + self             = false
+              + to_port          = 0
+            },
+        ]
+      + id                     = (known after apply)
+      + ingress                = [
+          + {
+              + cidr_blocks      = [
+                  + "10.0.0.0/16",
+                ]
+              + description      = "PostgreSQL from VPC"
+              + from_port        = 5432
+              + ipv6_cidr_blocks = []
+              + prefix_list_ids  = []
+              + protocol         = "tcp"
+              + security_groups  = []
+              + self             = false
+              + to_port          = 5432
+            },
+          + {
+              + cidr_blocks      = [
+                  + "10.0.0.0/8",
+                ]
+              + description      = "HTTPS from VPC"
+              + from_port        = 443
+              + ipv6_cidr_blocks = []
+              + prefix_list_ids  = []
+              + protocol         = "tcp"
+              + security_groups  = []
+              + self             = false
+              + to_port          = 443
+            },
+        ]
+      + name                   = "ticketing-dev-sg-policies"
+      + name_prefix            = (known after apply)
+      + owner_id               = (known after apply)
+      + revoke_rules_on_delete = false
+      + tags                   = {
+          + "Name" = "ticketing-dev-sg-policies"
+        }
+      + tags_all               = {
+          + "Name" = "ticketing-dev-sg-policies"
+        }
+      + vpc_id                 = "vpc-0001eb40b189eb00f"
+    }
+
+  # aws_security_group.ticketing_sg will be destroyed
+  # (because aws_security_group.ticketing_sg is not in configuration)
+  - resource "aws_security_group" "ticketing_sg" {
+      - arn                    = "arn:aws:ec2:us-east-1:840080485121:security-group/sg-092b298e47e2b6d19" -> null
+      - description            = "Security group with policies" -> null
+      - egress                 = [
+          - {
+              - cidr_blocks      = [
+                  - "0.0.0.0/0",
+                ]
+              - from_port        = 0
+              - ipv6_cidr_blocks = []
+              - prefix_list_ids  = []
+              - protocol         = "-1"
+              - security_groups  = []
+              - self             = false
+              - to_port          = 0
+                # (1 unchanged attribute hidden)
+            },
+        ] -> null
+      - id                     = "sg-092b298e47e2b6d19" -> null
+      - ingress                = [
+          - {
+              - cidr_blocks      = [
+                  - "10.0.0.0/8",
+                ]
+              - from_port        = 443
+              - ipv6_cidr_blocks = []
+              - prefix_list_ids  = []
+              - protocol         = "tcp"
+              - security_groups  = []
+              - self             = false
+              - to_port          = 443
+                # (1 unchanged attribute hidden)
+            },
+          - {
+              - cidr_blocks      = [
+                  - "203.0.113.0/24",
+                ]
+              - from_port        = 22
+              - ipv6_cidr_blocks = []
+              - prefix_list_ids  = []
+              - protocol         = "tcp"
+              - security_groups  = []
+              - self             = false
+              - to_port          = 22
+                # (1 unchanged attribute hidden)
+            },
+        ] -> null
+      - name                   = "ticketing-sg-policies" -> null
+      - owner_id               = "840080485121" -> null
+      - revoke_rules_on_delete = false -> null
+      - tags                   = {
+          - "Environment" = "dev"
+          - "ManagedBy"   = "terraform"
+          - "Name"        = "ticketing-security-group"
+          - "Project"     = "ticketing"
+        } -> null
+      - tags_all               = {
+          - "Environment" = "dev"
+          - "ManagedBy"   = "terraform"
+          - "Name"        = "ticketing-security-group"
+          - "Project"     = "ticketing"
+        } -> null
+      - vpc_id                 = "vpc-0001eb40b189eb00f" -> null
+        # (1 unchanged attribute hidden)
+    }
+
+  # aws_subnet.public_1 will be updated in-place
+  ~ resource "aws_subnet" "public_1" {
+        id                                             = "subnet-0a51e931517547741"
+      ~ tags                                           = {
+          - "Environment" = "dev" -> null
+          - "ManagedBy"   = "terraform" -> null
+          ~ "Name"        = "ticketing-public-1" -> "ticketing-dev-public-1"
+          - "Project"     = "ticketing" -> null
+        }
+      ~ tags_all                                       = {
+          - "Environment" = "dev" -> null
+          - "ManagedBy"   = "terraform" -> null
+          ~ "Name"        = "ticketing-public-1" -> "ticketing-dev-public-1"
+          - "Project"     = "ticketing" -> null
+        }
+        # (19 unchanged attributes hidden)
+    }
+
+  # aws_subnet.public_2 will be updated in-place
+  ~ resource "aws_subnet" "public_2" {
+        id                                             = "subnet-01e2162b718866629"
+      ~ tags                                           = {
+          - "Environment" = "dev" -> null
+          - "ManagedBy"   = "terraform" -> null
+          ~ "Name"        = "ticketing-public-2" -> "ticketing-dev-public-2"
+          - "Project"     = "ticketing" -> null
+        }
+      ~ tags_all                                       = {
+          - "Environment" = "dev" -> null
+          - "ManagedBy"   = "terraform" -> null
+          ~ "Name"        = "ticketing-public-2" -> "ticketing-dev-public-2"
+          - "Project"     = "ticketing" -> null
+        }
+        # (19 unchanged attributes hidden)
+    }
+
+  # aws_vpc.ticketing will be updated in-place
+  ~ resource "aws_vpc" "ticketing" {
+        id                                   = "vpc-0001eb40b189eb00f"
+      ~ tags                                 = {
+          - "Environment" = "dev" -> null
+          - "ManagedBy"   = "terraform" -> null
+          ~ "Name"        = "ticketing-vpc-dev" -> "ticketing-dev-vpc"
+          - "Project"     = "ticketing" -> null
+        }
+      ~ tags_all                             = {
+          - "Environment" = "dev" -> null
+          - "ManagedBy"   = "terraform" -> null
+          ~ "Name"        = "ticketing-vpc-dev" -> "ticketing-dev-vpc"
+          - "Project"     = "ticketing" -> null
+        }
+        # (18 unchanged attributes hidden)
+    }
+
+Plan: 13 to add, 11 to change, 12 to destroy.
+
+Changes to Outputs:
+  + app_role_arn                      = (known after apply)
+  + cluster_name                      = "ticketing-dev"
+  ~ eks_cluster_certificate_authority = "LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSURNakNDQWhxZ0F3SUJBZ0lSQUk4dHk0Rk55ejdONWZaOUNRZkZiN3d3RFFZSktvWklodmNOQVFFTEJRQXcKSnpFUU1BNEdBMVVFQ2hNSFFWZFRJRVZMVXpFVE1CRUdBMVVFQXhNS2EzVmlaWEp1WlhSbGN6QWVGdzB5TmpBNQpNVGd4TnpVd05UZGFGdzB6TVRBNU1UY3hOelV3TlRkYU1DY3hFREFPQmdOVkJBb1RCMEZYVXlCRlMxTXhFekFSCkJnTlZCQU1UQ210MVltVnlibVYwWlhNd2dnRWlNQTBHQ1NxR1NJYjNEUUVCQVFVQUE0SUJEd0F3Z2dFS0FvSUIKQVFEcnh2UXZaL3ZNeEdUL01EVG0ydm5Rb0U3VG9iQXBxTGI1Z3hsQmZaVzVqOE0rekE5M0JFUGwyVTRtN2dGKwpWT25qbGx4NXFndm4zdXdQMFBiNUg1dWJqbDhySmMzUzNYYlZaRFM4Zlo5ZGljWERQQXFzaXJ5TlIwU2JTblNNClpybU53RzExTU5Za2pRNk5zOFBPdkZEU1hsRUVoVWhub05TZ3Rvc3JmU05WVXBMeFZZM3M4Ry9vYVNXa2tMdjkKNEJXc3NuTFphUkh6bHJraHY4UzJEaVpuOUpKSUNPY1pXemZYUVVUcDZjYnJLNzBmd3FsRHk1UEUxazgwQWdqWQpmUVpDck1SZnAyWjZvSWFqWHJwVEV4YXBheDY1S2dURVdWUGIrcE5rK2xQcERqcTZSUzJla2RTRm9yMzNJeDZ3ClZUUXVnMGFUK1NTYzFqUWtTcXByWHIvMUFnTUJBQUdqV1RCWE1BNEdBMVVkRHdFQi93UUVBd0lDcERBUEJnTlYKSFJNQkFmOEVCVEFEQVFIL01CMEdBMVVkRGdRV0JCUVZncUhvR1lZY1Z6ZS91K01sSmRKY0lBdjA3ekFWQmdOVgpIUkVFRGpBTWdncHJkV0psY201bGRHVnpNQTBHQ1NxR1NJYjNEUUVCQ3dVQUE0SUJBUUJZZ3JoTEtpK01oVXNICmNGaWdWWlpnNGErNHdaQjRIZGNibFFmcGV1dG1abVVMODZJUkRmOWlJb1RMVEEvOEp3M2Y5YkNwMEF3UVhaekwKRVJ3U1dlRWVVQjhVUzRJZ3N6YmNUUmVvUHR4TkxqR0RXeVM1ejNsYVUvL2MrWGtET05icmg4dTlHdU4wbkxEUgpxRzc4VkZMZVJEYS93WXdvVVllWHAxRlJ4Ym81anZUQ2hqaUMyTjJydzFNRnpBQlFEMmRBY0tjMmsyTTRxQnp2Cmk5aHpEeHV0TXFzQk9IZERxL3pTZ2JBRkFadUJVRXUxbW5GL0dNMHZ1QTJ3TWM0TnRRdmJtOUVyVXFwUGVYK0gKalV2YkNkUGNtejgxTjZpamp2U0U5Qm5PcHN5UGZaUjFqY3pJRGlySXhSaVY3TEo0VnlFd2NyekUydkVuYUo3Rgp1QlMvWElicQotLS0tLUVORCBDRVJUSUZJQ0FURS0tLS0tCg==" -> (known after apply)
+  ~ eks_cluster_endpoint              = "https://2DE93C413299F04C7D91D5BFCD4EF2CD.gr7.us-east-1.eks.amazonaws.com" -> (known after apply)
+  + eks_cluster_id                    = (known after apply)
+  + kms_key_id                        = (known after apply)
+  + project_name                      = "ticketing-app"
+  ~ security_group_id                 = "sg-0bb6e3396c8aae5d9" -> (known after apply)
+  ~ security_policies_enforced        = "All security policies enforced via Terraform" -> "All security policies enforced for ticketing-dev"
+
+─────────────────────────────────────────────────────────────────────────────
+
+Note: You didn't use the -out option to save this plan, so Terraform can't
+guarantee to take exactly these actions if you run "terraform apply" now.

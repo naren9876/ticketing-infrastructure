@@ -39,3 +39,7 @@ images:
     newTag: v1.0.9
   - name: 840080485121.dkr.ecr.us-east-1.amazonaws.com/ticketing-notification-service
     newTag: v1.0.9
+
+# Patch imagePullSecrets for ECR access
+patchesStrategicMerge:
+  - imagepullsecret-patch.yaml

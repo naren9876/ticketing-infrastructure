@@ -28,14 +28,14 @@ commonLabels:
 # Override image tags for staging deployment
 images:
   - name: 840080485121.dkr.ecr.us-east-1.amazonaws.com/ticketing-api-gateway
-    newTag: v1.0.10
+    newTag: v1.0.9
   - name: 840080485121.dkr.ecr.us-east-1.amazonaws.com/ticketing-user-service
-    newTag: v1.0.10
+    newTag: v1.0.9
   - name: 840080485121.dkr.ecr.us-east-1.amazonaws.com/ticketing-movie-service
-    newTag: v1.0.10
+    newTag: v1.0.9
   - name: 840080485121.dkr.ecr.us-east-1.amazonaws.com/ticketing-booking-service
-    newTag: v1.0.10
+    newTag: v1.0.9
   - name: 840080485121.dkr.ecr.us-east-1.amazonaws.com/ticketing-payment-service
-    newTag: v1.0.10
+    newTag: v1.0.9
   - name: 840080485121.dkr.ecr.us-east-1.amazonaws.com/ticketing-notification-service
-    newTag: v1.0.10
+    newTag: v1.0.9

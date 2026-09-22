@@ -1,61 +1,10 @@
 name: Deploy to Staging
 
 on:
-  release:
-    types: [published]
+  repository_dispatch:
+    types: [deploy-staging]
 
 jobs:
   provision-and-deploy:
     runs-on: ubuntu-latest
-    
-    steps:
-    - uses: actions/checkout@v3
-    
-    - name: Setup Terraform
-      uses: hashicorp/setup-terraform@v2
-      with:
-        terraform_version: 1.5.0
-    
-    - name: Configure AWS credentials
-      uses: aws-actions/configure-aws-credentials@v2
-      with:
-        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        aws-region: ${{ secrets.AWS_REGION }}
-    
-    - name: Initialize Terraform (Account-level)
-      working-directory: terraform/account
-      run: terraform init
-    
-    - name: Plan Terraform (Account-level)
-      working-directory: terraform/account
-      run: terraform plan -var-file=account.tfvars
-    
-    - name: Initialize Terraform (Staging)
-      working-directory: terraform/environments/staging
-      run: terraform init
-    
-    - name: Plan Terraform (Staging)
-      working-directory: terraform/environments/staging
-      run: terraform plan -var-file=staging.tfvars -out=tfplan
-    
-    - name: Apply Terraform (Staging)
-      working-directory: terraform/environments/staging
-      run: terraform apply -auto-approve tfplan
-    
-    - name: Setup kubectl
-      uses: azure/setup-kubectl@v3
-      with:
-        version: '1.36'
-    
-    - name: Update kubeconfig for staging cluster
-      run: aws eks update-kubeconfig --name ticketing-staging --region ${{ secrets.AWS_REGION }}
-    
-    - name: Deploy ArgoCD Application
-      run: kubectl apply -f kubernetes/argocd/staging-application.yaml -n argocd
-    
-    - name: Verify staging deployment
-      run: |
-        sleep 30
-        kubectl get application -n argocd
-        kubectl get pods -n default
+    # ... rest of workflow
